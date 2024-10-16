@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply for Scholarships</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="header :: header"></div> <!-- Include header -->
+
+<div class="container">
+
+
+    <div th:if="${param.success}">
+        <div class="alert alert-success">Application submitted successfully!</div>
+    </div>
+
+    <form th:action="@{/apply}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="schoolName">School Name</label>
+            <input type="text" id="schoolName" name="schoolName" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="scholarship">Select Scholarship</label>
+            <select id="scholarship" name="scholarshipId" class="form-control" required>
+                <option th:each="scholarship : ${scholarships}"
+                        th:value="${scholarship.id}"
+                        th:text="${scholarship.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Scholarship Applications</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="header :: header"></div> <!-- Include header -->
+
+<button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+
+<div class="container">
+    <h1>Scholarship Applications</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>School Name</th>
+            <th>Scholarship Title</th> <!-- Added Scholarship Title -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="applied : ${applications}">
+            <td th:text="${applied.name}"></td>
+            <td th:text="${applied.email}"></td>
+            <td th:text="${applied.schoolName}"></td>
+            <td th:text="${applied.scholarship.name}"></td> <!-- Display Scholarship Title -->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+        function goBack() {
+            window.history.back();
+        }
+</script>
+</body>
+</html>
+

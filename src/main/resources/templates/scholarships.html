@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Scholarships</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="header :: header"></div> <!-- Include header -->
+<div class="container">
+    <h1>Scholarships</h1>
+    <a th:href="@{/admin/scholarships/add}" class="btn btn-primary">Add Scholarship</a>
+    <a th:href="@{/admin/applications}" class="btn btn-primary">View Applications</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="scholarship : ${scholarships}">
+            <td th:text="${scholarship.id}"></td>
+            <td th:text="${scholarship.name}"></td>
+            <td th:text="${scholarship.description}"></td>
+            <td>
+                <a th:href="@{/admin/scholarships/delete/{id}(id=${scholarship.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
