@@ -20,11 +20,11 @@ Pariksha is a web application designed to help students apply for scholarships. 
 ## Setup Instructions
 
 1. **Clone the Repository**
-   ```bash
    git clone <repository-url>
    cd pariksha
    
-2. Ensure Maven is Installed Make sure you have Maven installed on your machine. You can check by running: mvn -v
+2. Ensure Maven is Installed Make sure you have Maven installed on your machine. You can check by running: 
+mvn -v
 
 
 3.Build the Application Navigate to the project root folder and run: 
