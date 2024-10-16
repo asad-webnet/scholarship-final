@@ -27,7 +27,7 @@ Pariksha is a web application designed to help students apply for scholarships. 
 mvn -v
 
 
-3.Build the Application Navigate to the project root folder and run: 
+3. Build the Application Navigate to the project root folder and run: 
 mvn clean install
 
 4. To run the application, execute the following command in the project root folder:
